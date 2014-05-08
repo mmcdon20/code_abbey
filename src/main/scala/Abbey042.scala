@@ -9,8 +9,7 @@ object Abbey042 extends App {
     val (partial, aces) = item.partition(_ < 11)
     var total = partial.sum + aces.length
     for (i <- 1 to aces.length; if total + 10 <= 21) total += 10
-    total
+    if (total > 21) "Bust" else total
   }
-  val results = scores.map { s => if (s > 21) "Bust" else s }
-  println(results.mkString(" "))
+  println(scores.mkString(" "))
 }
