@@ -11,7 +11,7 @@ abstract class Tree {
 }
 
 case class Fork(item: Int, var left: Tree = Leaf(), var right: Tree = Leaf()) extends Tree {
-  override def toString = s"(${left.toString},$item,${right.toString})"
+  override def toString = s"($left,$item,$right)"
   def insert(n: Int) = (left,right) match {
     case (Leaf(),_) if n < item => left = Fork(n)
     case (_,Leaf()) if n > item => right = Fork(n)
